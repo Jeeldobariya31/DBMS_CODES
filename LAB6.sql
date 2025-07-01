@@ -1,4 +1,4 @@
-
+USE CSE_3A_232;
 -- Table Creation
 CREATE TABLE STUDENT (
     StuID INT,
@@ -28,12 +28,12 @@ WHERE FirstName LIKE 'K%';
 
 -- 2. Display the name of students whose name consists of five characters.
 SELECT * FROM STUDENT
-WHERE LEN(FirstName) = 5;
+WHERE FirstName LIKE '_____';
 
 -- 3. Retrieve the first name & last name of students whose city name ends with ‘a’ & contains six characters.
 SELECT FirstName, LastName 
 FROM STUDENT
-WHERE City LIKE '%a' AND LEN(City) = 6;
+WHERE City LIKE '_____a';
 
 -- 4. Display all the students whose last name ends with ‘tel’.
 SELECT * FROM STUDENT
@@ -49,7 +49,7 @@ WHERE FirstName LIKE 'k_y%';
 
 -- 7. Display the name of students having no website and name consists of five characters.
 SELECT * FROM STUDENT 
-WHERE Website IS NULL AND LEN(FirstName) = 5;
+WHERE Website IS NULL AND FirstName LIKE '_____';
 
 -- 8. Display all the students whose last name consist of ‘jer’.  
 SELECT * FROM STUDENT 
@@ -73,7 +73,7 @@ WHERE FirstName LIKE '_[aeiouAEIOU]%';
 
 -- 13. Display the name of students having no website and name consists of minimum five characters.
 SELECT * FROM STUDENT 
-WHERE Website IS NULL AND LEN(FirstName) >= 5;
+WHERE Website IS NULL AND FirstName LIKE '_____%';
 
 -- 14. Display all the students whose last name starts with ‘Pat’.  
 SELECT * FROM STUDENT 
