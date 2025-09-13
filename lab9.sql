@@ -214,7 +214,15 @@ SELECT
 --12. Find last date of current month
 SELECT EOMONTH(GETDATE()) AS LastDateOfMonth;
 
---13. Calculate age in years and months (example DOB used: 2003-08-15)
+--13. Calculate age in years and months (example DOB used: 2003-08-15
+SELECT 
+    DATEDIFF(YEAR,'2003-08-15', GETDATE()) 
+      - CASE WHEN (MONTH('2003-08-15') > MONTH(GETDATE()) 
+              OR (MONTH('2003-08-15') = MONTH(GETDATE()) AND DAY('2003-08-15') > DAY(GETDATE())))
+        THEN 1 ELSE 0 END AS AgeYears,
+
+    (DATEDIFF(MONTH, '2003-08-15', GETDATE()) % 12) AS AgeMonths;
+
 
 ----------------------------------PART-B--------------------
 CREATE TABLE EMP_MASTER (
